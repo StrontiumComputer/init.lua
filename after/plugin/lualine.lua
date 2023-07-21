@@ -61,7 +61,7 @@ require('lualine').setup {
                 color_info = { fg = colors.cyan },
             },}},
         lualine_c = {'filename'},
-        lualine_x = {'encoding', 'filetype'},
+        lualine_x = {LSPINFO, 'encoding', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
     },
