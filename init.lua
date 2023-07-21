@@ -74,7 +74,13 @@ require("lazy").setup({
         event = "InsertEnter",
         opts = {} -- this is equalent to setup({}) function
     },
-
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+    },
+    {
+        'nvim-lua/lsp-status.nvim'
+    },
 })
 
 vim.cmd[[colorscheme tokyonight]]

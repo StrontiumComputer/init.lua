@@ -22,6 +22,16 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 -- control y is confirm
 -- control space is mapping complete
 
+lsp.set_preferences({
+    sign_icons = {
+        error = '',
+        warn = '',
+        hint = '󰛨',
+        info = '󰋼'
+    }
+})
+
+
 M.on_attach = lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
 
