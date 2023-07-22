@@ -1,18 +1,18 @@
 require("srijan")
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
-	-- init.lua:
+    -- init.lua:
 	{
 		'nvim-telescope/telescope.nvim', tag = '0.1.2',
 		-- or                              , branch = '0.1.x',
@@ -63,7 +63,7 @@ require("lazy").setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'rose-pine',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
@@ -81,6 +81,16 @@ require("lazy").setup({
     {
         'nvim-lua/lsp-status.nvim'
     },
+    {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    },
+    { "lukas-reineke/indent-blankline.nvim" },
+    { 'saadparwaiz1/cmp_luasnip' },
+    {'nvim-tree/nvim-web-devicons'},
+    {'norcalli/nvim-colorizer.lua'},
 })
 
 vim.cmd[[colorscheme tokyonight]]
