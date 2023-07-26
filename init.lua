@@ -91,6 +91,7 @@ require("lazy").setup({
     { 'saadparwaiz1/cmp_luasnip' },
     {'nvim-tree/nvim-web-devicons'},
     {'norcalli/nvim-colorizer.lua'},
+    {'ThePrimeagen/vim-be-good'},
 })
 
 vim.cmd[[colorscheme tokyonight]]
