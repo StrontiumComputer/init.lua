@@ -1,3 +1,3 @@
 # init.lua
 
-My Neovim Config
+My own customized Neovim Config
