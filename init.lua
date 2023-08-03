@@ -180,6 +180,7 @@ require("lazy").setup({
 			-- add any custom options here
 		},
 	},
+	{ "mfussenegger/nvim-jdtls" },
 })
 
 vim.cmd([[colorscheme tokyonight-storm]])
