@@ -86,7 +86,7 @@ require("lazy").setup({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
-		end,
+        end,
 	},
 	{ "lukas-reineke/indent-blankline.nvim" },
 	{ "saadparwaiz1/cmp_luasnip" },
@@ -106,6 +106,7 @@ require("lazy").setup({
 		},
 	},
 	{ "tpope/vim-surround" },
+	{ "nvim-treesitter/nvim-treesitter-context" },
 })
 
 vim.cmd([[colorscheme tokyonight-storm]])
