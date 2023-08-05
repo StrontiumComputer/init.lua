@@ -42,7 +42,7 @@ require("formatter").setup({
 			function()
 				return {
 					exe = "clang-format",
-					args = { "--style=Google", "--assume-filename=.java" },
+					args = { "--style=chromium", "--assume-filename=.java" },
 					stdin = true,
 				}
 			end,
