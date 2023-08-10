@@ -19,12 +19,7 @@ require("lazy").setup({
 		-- or                              , branch = '0.1.x',
 		dependencies = { "nvim-lua/plenary.nvim" },
 	},
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	},
+	{ "catppuccin/nvim", name = "catppuccin", priority = 1000 },
 	{
 		-- Highlight, edit, and navigate code
 		"nvim-treesitter/nvim-treesitter",
@@ -113,17 +108,12 @@ require("lazy").setup({
 		opts = function()
 			local dashboard = require("alpha.themes.dashboard")
 			local logo = [[
-                          ,%%%%%%%,
-                        ,%%/\%%%%/\%,
-                       ,%%%\c "" J/%%,
-  %.                   %%%%/ d  b \%%%
-  `%%.         __      %%%%    _  |%%%
-   `%%      .-'  `"~--"`%%%%(=_Y_=)%%'
-    //    .'     `.     `%%%%`\7/%%%'____
-   ((    /         ;      `%%%%%%%'____)))
-   `.`--'         ,'   _,`-._____`-,
-     `"""`._____  `--,`          `)))
-                `~"-)))
+   ___              _       (_)
+  / __|     _ _    (_)      | |   __ _    _ _
+  \__ \    | '_|   | |     _/ |  / _` |  | ' \
+  |___/   _|_|_   _|_|_   |__/_  \__,_|  |_||_|
+_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
+"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'"`-0-0-'
       ]]
 
 			dashboard.section.header.val = vim.split(logo, "\n")
@@ -131,7 +121,7 @@ require("lazy").setup({
 				dashboard.button("f", "󰱼 " .. " Find file", ":Telescope find_files <CR>"),
 				dashboard.button("n", "󰣕 " .. " New file", ":ene <BAR> startinsert <CR>"),
 				dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-				dashboard.button("p", " " .. " File Explorer", ":Ex <CR>"),
+				dashboard.button("e", " " .. " File Explorer", ":Ex <CR>"),
 				dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
 				dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
 				dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
@@ -184,4 +174,5 @@ require("lazy").setup({
 	{ "mfussenegger/nvim-jdtls" },
 })
 
-vim.cmd([[colorscheme tokyonight-storm]])
+vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[hi LineNr guifg=LightBlue]])

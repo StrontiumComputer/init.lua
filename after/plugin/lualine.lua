@@ -65,7 +65,7 @@ require("lualine").setup({
 			},
 		},
 		lualine_c = {
-			{ "filename", color = { fg = colors.magenta, gui = "bold" } },
+			{ "filename", color = { fg = colors.violet, gui = "bold" } },
 			{
 				"filesize",
 				color = { fg = "#ffffff" },
