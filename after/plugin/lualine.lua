@@ -70,10 +70,10 @@ require("lualine").setup({
 				"filesize",
 				color = { fg = "#ffffff" },
 			},
+			{ "encoding" },
 		},
 		lualine_x = {
 			{ LSPINFO, color = { fg = colors.orange, gui = "bold" }, icon = " LSP:" },
-			"encoding",
 			"filetype",
 		},
 		lualine_y = { "progress" },
