@@ -174,5 +174,6 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 	{ "mfussenegger/nvim-jdtls" },
 })
 
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[colorscheme catppuccin-macchiato]])
 vim.cmd([[hi LineNr guifg=LightBlue]])
+vim.cmd([[highlight Normal guibg=none]])
