@@ -175,5 +175,5 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 })
 
 vim.cmd([[colorscheme catppuccin-macchiato]])
-vim.cmd([[hi LineNr guifg=LightBlue]])
-vim.cmd([[highlight Normal guibg=none]])
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
