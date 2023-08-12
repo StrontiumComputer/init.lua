@@ -5,7 +5,6 @@ local lsp = require("lsp-zero").preset("recommended")
 lsp.ensure_installed({
 	"tsserver",
 	"eslint",
-	"rust_analyzer",
 	"pyright",
 	"gopls",
 	"clangd",
@@ -92,6 +91,28 @@ require("lspconfig").pyright.setup({
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 	filetypes = { "python" },
+})
+
+-- Rust LSP (rust_analyzer) setup
+
+require("lspconfig").rust_analyzer.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	filetypes = { "rust" },
+	cmd = {
+		"rustup",
+		"run",
+		"stable",
+		"rust-analyzer",
+	},
+})
+
+-- Go LSP (gopls) setup
+
+require("lspconfig").gopls.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	filetypes = { "go" },
 })
 
 return M
