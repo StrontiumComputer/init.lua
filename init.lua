@@ -172,8 +172,8 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 		},
 	},
 	{ "mfussenegger/nvim-jdtls" },
+	{ "onsails/lspkind.nvim" },
 })
 
 vim.cmd([[colorscheme catppuccin-macchiato]])
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
