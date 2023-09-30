@@ -80,7 +80,7 @@ vim.diagnostic.config({
 -- Java LSP (jdtls) config
 
 require("lspconfig").jdtls.setup({
-	on_attach = M.java_on_attach,
+	on_attach = M.on_attach,
 	capabilities = M.capabilities,
 	filetypes = { "java" },
 })

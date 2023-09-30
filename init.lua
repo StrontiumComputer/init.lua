@@ -171,7 +171,6 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 			-- add any custom options here
 		},
 	},
-	{ "mfussenegger/nvim-jdtls" },
 	{ "onsails/lspkind.nvim" },
 })
 
