@@ -172,6 +172,7 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 		},
 	},
 	{ "onsails/lspkind.nvim" },
+	{ "github/copilot.vim" },
 })
 
 vim.cmd([[colorscheme catppuccin-macchiato]])
