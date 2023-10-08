@@ -177,5 +177,5 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 	},
 })
 
-vim.cmd([[colorscheme catppuccin-macchiato]])
+vim.cmd([[colorscheme catppuccin-mocha]])
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
