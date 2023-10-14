@@ -28,6 +28,13 @@ lsp.set_preferences({
 	},
 })
 
+local function organize_imports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+	}
+	vim.lsp.buf.execute_command(params)
+end
 -- stylua: ignore
 M.on_attach = lsp.on_attach(function(client, bufnr)
     local opts = {buffer = bufnr, remap = false}
@@ -77,6 +84,29 @@ vim.diagnostic.config({
 	virtual_text = true,
 })
 
+-- Svelte LSP server config
+
+require("lspconfig").svelte.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	filetypes = { "svelte" },
+})
+
+require("lspconfig").tsserver.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	init_options = {
+		preferences = {
+			disableSuggestions = true,
+		},
+	},
+	commands = {
+		OrganizeImports = {
+			organize_imports,
+			description = "Organize Imports",
+		},
+	},
+})
 -- Java LSP (jdtls) config
 
 require("lspconfig").jdtls.setup({
