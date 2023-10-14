@@ -107,6 +107,12 @@ require("lspconfig").tsserver.setup({
 		},
 	},
 })
+
+require("lspconfig").tailwindcss.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	filetypes = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "vue" },
+})
 -- Java LSP (jdtls) config
 
 require("lspconfig").jdtls.setup({
