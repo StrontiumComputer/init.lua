@@ -3,7 +3,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 local lspkind = require("lspkind")
 local luasnip = require("luasnip")
 
-cmp.setup({
+cmp.setup( {
 	window = {
 		completion = cmp.config.window.bordered({
 			winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
@@ -62,3 +62,7 @@ cmp.setup({
 		{ name = "buffer" },
 	}),
 })
+
+cmp.config.formatting = {
+	format = require("tailwindcss-colorizer-cmp").formatter,
+}

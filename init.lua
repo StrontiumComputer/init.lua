@@ -87,7 +87,14 @@ require("lazy").setup({
 	{ "saadparwaiz1/cmp_luasnip" },
 	{ "hrsh7th/cmp-path" },
 	{ "nvim-tree/nvim-web-devicons" },
-	{ "norcalli/nvim-colorizer.lua" },
+	{
+		"NvChad/nvim-colorizer.lua",
+		opts = {
+			user_default_options = {
+				tailwind = true,
+			},
+		},
+	},
 	{ "ThePrimeagen/vim-be-good" },
 	{ "mfussenegger/nvim-lint" },
 	{ "mhartington/formatter.nvim" },
@@ -121,7 +128,7 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 				dashboard.button("f", "󰱼 " .. " Find file", ":Telescope find_files <CR>"),
 				dashboard.button("n", "󰣕 " .. " New file", ":ene <BAR> startinsert <CR>"),
 				dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-				dashboard.button("e", " " .. " File Explorer", ":Ex <CR>"),
+				dashboard.button("e", " " .. " File Explorer", ":NvimTreeOpen <CR>"),
 				dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
 				dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
 				dashboard.button("s", " " .. " Restore Session", [[:lua require("persistence").load() <cr>]]),
@@ -164,16 +171,30 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 		end,
 	},
 	-- Lua
-	{
-		"folke/persistence.nvim",
-		event = "BufReadPre", -- this will only start session saving when an actual file was opened
-		opts = {
-			-- add any custom options here
-		},
-	},
 	{ "onsails/lspkind.nvim" },
 	{
 		"github/copilot.vim",
+	},
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
+	},
+	{
+		"nvim-tree/nvim-tree.lua",
+	},
+	{
+		"nvimtools/none-ls.nvim",
+         "nvimtools/none-ls.nvim",
+    config = function()
+        require("null-ls").setup()
+    end,
+        event = "VeryLazy",
+        requires = { "nvim-lua/plenary.nvim" },
 	},
 })
 
