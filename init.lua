@@ -189,12 +189,12 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 	},
 	{
 		"nvimtools/none-ls.nvim",
-         "nvimtools/none-ls.nvim",
-    config = function()
-        require("null-ls").setup()
-    end,
-        event = "VeryLazy",
-        requires = { "nvim-lua/plenary.nvim" },
+		"nvimtools/none-ls.nvim",
+		config = function()
+			require("null-ls").setup()
+		end,
+		event = "VeryLazy",
+		requires = { "nvim-lua/plenary.nvim" },
 	},
 })
 
