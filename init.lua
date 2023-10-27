@@ -35,6 +35,7 @@ require("lazy").setup({
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
+		lazy = true,
 		dependencies = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" }, -- Required
@@ -59,7 +60,7 @@ require("lazy").setup({
 		opts = {
 			options = {
 				icons_enabled = true,
-				theme = "tokyonight",
+				theme = "catppuccin",
 				component_separators = "|",
 				section_separators = "",
 			},

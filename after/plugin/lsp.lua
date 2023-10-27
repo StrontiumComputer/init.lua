@@ -19,13 +19,11 @@ local cmp_select = { behavior = cmp.SelectBehavior.Select }
 -- control y is confirm
 -- control space is mapping complete
 
-lsp.set_preferences({
-	sign_icons = {
-		error = "",
-		warn = "",
-		hint = "󰛨",
-		info = "󰋼",
-	},
+lsp.set_sign_icons({
+	error = "",
+	warn = "",
+	hint = "󰛨",
+	info = "󰋼",
 })
 
 local function organize_imports()
@@ -37,7 +35,7 @@ local function organize_imports()
 end
 -- stylua: ignore
 M.on_attach = lsp.on_attach(function(client, bufnr)
-    local opts = {buffer = bufnr, remap = false}
+    local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -48,11 +46,11 @@ M.on_attach = lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("i", "c-x", function() vim.lsp.buf.signature_help() end, opts)
 end)
 -- stylua: ignore
 M.java_on_attach = lsp.on_attach(function(client, bufnr)
-    local opts = {buffer = bufnr, remap = false}
+    local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
@@ -63,7 +61,7 @@ M.java_on_attach = lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    vim.keymap.set("i", "<c-x>", function() vim.lsp.buf.signature_help() end, opts)
 
     --Java specific remaps
     vim.keymap.set("n", "<leader>co", function() require("jdtls").organize_imports() end, opts)
