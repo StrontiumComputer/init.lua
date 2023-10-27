@@ -31,7 +31,6 @@ require("lazy").setup({
 	{ "nvim-treesitter/playground" },
 	{ "ThePrimeagen/harpoon" },
 	{ "mbbill/undotree" },
-	{ "tpope/vim-fugitive" },
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
@@ -67,16 +66,30 @@ require("lazy").setup({
 		},
 	},
 	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		opts = {}, -- this is equalent to setup({}) function
+		"altermo/ultimate-autopair.nvim",
+		event = { "InsertEnter", "CmdlineEnter" },
+		branch = "v0.6", --recomended as each new version will have breaking changes
+		opts = {
+			--Config goes here
+		},
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		event = "VeryLazy",
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		event = "VeryLazy",
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
 	},
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = { "rafamadriz/friendly-snippets" },
-	},
-	{
-		"nvim-lua/lsp-status.nvim",
 	},
 	{
 		"numToStr/Comment.nvim",
@@ -196,6 +209,13 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 		end,
 		event = "VeryLazy",
 		requires = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"kdheepak/lazygit.nvim",
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
 	},
 })
 
