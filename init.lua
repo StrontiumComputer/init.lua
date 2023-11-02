@@ -34,7 +34,6 @@ require("lazy").setup({
 	{
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v2.x",
-		lazy = true,
 		dependencies = {
 			-- LSP Support
 			{ "neovim/nvim-lspconfig" }, -- Required
@@ -203,12 +202,12 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 	},
 	{
 		"nvimtools/none-ls.nvim",
-         "nvimtools/none-ls.nvim",
-    config = function()
-        require("null-ls").setup()
-    end,
-        event = "VeryLazy",
-        requires = { "nvim-lua/plenary.nvim" },
+		"nvimtools/none-ls.nvim",
+		config = function()
+			require("null-ls").setup()
+		end,
+		event = "VeryLazy",
+		requires = { "nvim-lua/plenary.nvim" },
 	},
 	{
 		"kdheepak/lazygit.nvim",
