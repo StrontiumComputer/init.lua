@@ -90,6 +90,11 @@ require("lspconfig").svelte.setup({
 	filetypes = { "svelte" },
 })
 
+require("lspconfig").biome.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+})
+
 require("lspconfig").tsserver.setup({
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
