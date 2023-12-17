@@ -216,6 +216,22 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 			"nvim-lua/plenary.nvim",
 		},
 	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && npm install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+	{
+		"lervag/vimtex",
+	},
+	{
+		"folke/trouble.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
 })
 
 vim.cmd([[colorscheme catppuccin-mocha]])

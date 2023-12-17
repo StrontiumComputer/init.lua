@@ -95,6 +95,24 @@ require("lspconfig").biome.setup({
 	capabilities = M.capabilities,
 })
 
+require("lspconfig").marksman.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	filetypes = { "markdown" },
+})
+
+require("lspconfig").texlab.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	filetypes = { "tex", "bib" },
+})
+
+require("lspconfig").ltex.setup({
+	on_attach = M.on_attach,
+	capabilities = M.capabilities,
+	filetypes = { "tex", "bib" },
+})
+
 require("lspconfig").tsserver.setup({
 	on_attach = M.on_attach,
 	capabilities = M.capabilities,
