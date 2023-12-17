@@ -232,6 +232,27 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 		"folke/trouble.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	{
+		"nvim-java/nvim-java",
+		dependencies = {
+			"nvim-java/lua-async-await",
+			"nvim-java/nvim-java-core",
+			"nvim-java/nvim-java-test",
+			"nvim-java/nvim-java-dap",
+			"MunifTanjim/nui.nvim",
+			"neovim/nvim-lspconfig",
+			"mfussenegger/nvim-dap",
+			{
+				"williamboman/mason.nvim",
+				opts = {
+					registries = {
+						"github:nvim-java/mason-registry",
+						"github:mason-org/mason-registry",
+					},
+				},
+			},
+		},
+	},
 })
 
 vim.cmd([[colorscheme catppuccin-mocha]])
