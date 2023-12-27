@@ -226,17 +226,28 @@ return {
                             "rust-analyzer",
                         },
                     }),
+                    require("lspconfig").gopls.setup({
+                        capabilities = lsp_capabilities,
+                        cmd = { "gopls" },
+                        filetypes = { "go", "gomod", "gowork", "gotmpl" },
+                        root_dir = require("lspconfig/util").root_pattern(
+                            "go.mod",
+                            "go.work",
+                            ".git"
+                        ),
+                        settings = {
+                            gopls = {
+                                completedUnimported = true,
+                                usePlaceholders = true,
+                                analyses = {
+                                    unusedparams = true,
+                                },
+                            }
+                        }
+                    }),
                 },
             })
         end,
     },
-    { "onsails/lspkind.nvim" },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-path" },
-    { "hrsh7th/nvim-cmp" },
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = { "rafamadriz/friendly-snippets" },
-    },
-    { "saadparwaiz1/cmp_luasnip" },
+    { "folke/neodev.nvim" },
 }

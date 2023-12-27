@@ -1,8 +1,8 @@
 return {
     { "mfussenegger/nvim-lint" },
-    { "mhartington/formatter.nvim",
-        config = function ()
-
+    {
+        "mhartington/formatter.nvim",
+        config = function()
             -- Utilities for creating configurations
             local util = require("formatter.util")
 
@@ -59,6 +59,9 @@ return {
                     null_ls.builtins.formatting.stylua,
                     null_ls.builtins.formatting.prettierd,
                     null_ls.builtins.formatting.black,
+                    null_ls.builtins.formatting.gofumpt,
+                    null_ls.builtins.formatting.golines,
+                    null_ls.builtins.formatting.goimports_reviser,
                     null_ls.builtins.diagnostics.mypy,
                     null_ls.builtins.diagnostics.ruff,
                 },

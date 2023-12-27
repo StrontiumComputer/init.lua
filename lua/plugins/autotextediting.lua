@@ -10,6 +10,12 @@ return {
     {
         "windwp/nvim-ts-autotag",
         event = "VeryLazy",
+        autotag = {
+            enable = true,
+        },
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end,
     },
     {
         "kylechui/nvim-surround",
@@ -21,16 +27,15 @@ return {
             })
         end,
     },
-    { "lukas-reineke/indent-blankline.nvim",
-        config = function ()
-
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
             require("ibl").setup()
         end
     },
-    { "tpope/vim-surround" },
     {
         "github/copilot.vim",
-        config = function ()
+        config = function()
             vim.g.copilot_assume_mapped = true
         end
     },

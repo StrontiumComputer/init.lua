@@ -7,8 +7,7 @@ return {
                 tailwind = true,
             },
         },
-        config = function ()
-
+        config = function()
             require("colorizer").setup({
                 filetypes = { "*" },
                 user_default_options = {
@@ -25,7 +24,6 @@ return {
             require("cmp").config.formatting = {
                 format = require("tailwindcss-colorizer-cmp").formatter,
             }
-
         end
 
     },
@@ -126,9 +124,21 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        config = function ()
+        config = function()
             require("telescope").load_extension("lazygit")
             vim.keymap.set("n", "<leader>gs", [[:LazyGit<CR>]])
         end
     },
+    {
+        "utilyre/barbecue.nvim",
+        name = "barbecue",
+        version = "*",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "nvim-tree/nvim-web-devicons", -- optional dependency
+        },
+        opts = {
+            -- configurations go here
+        },
+    }
 }
