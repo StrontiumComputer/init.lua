@@ -4,7 +4,16 @@ return {
         "nvim-treesitter/nvim-treesitter",
         event = "BufRead",
         dependencies = {
-            "nvim-treesitter/nvim-treesitter-textobjects",
+            {
+                "nvim-treesitter/nvim-treesitter-textobjects",
+            },
+            {
+                "nvim-treesitter/playground",
+                cmd = "TSPlaygroundToggle",
+            },
+            {
+                "nvim-treesitter/nvim-treesitter-context",
+            }
         },
         build = ":TSUpdate",
         config = function()
@@ -88,15 +97,6 @@ return {
                     },
                 },
             })
-        end,
-    },
-    {
-        "nvim-treesitter/playground",
-        event = "VeryLazy",
-    },
-    {
-        "nvim-treesitter/nvim-treesitter-context",
-        config = function()
             require("treesitter-context").setup({
                 enable = true,            -- Enable this plugin (Can be enabled/disabled later via commands)
                 max_lines = 0,            -- How many lines the window should span. Values <= 0 mean no limit.
@@ -115,6 +115,11 @@ return {
             vim.keymap.set("n", "[c", function()
                 require("treesitter-context").go_to_context()
             end, { silent = true })
+        end,
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        config = function()
         end,
     },
 }

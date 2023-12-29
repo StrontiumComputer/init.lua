@@ -9,7 +9,7 @@ return {
     },
     {
         "windwp/nvim-ts-autotag",
-        event = "VeryLazy",
+        ft = { "html", "javascript", "javascriptreact", "typescriptreact", "svelte", "vue", "astro", "markdown" },
         autotag = {
             enable = true,
         },
