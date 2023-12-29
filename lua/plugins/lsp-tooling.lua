@@ -1,6 +1,7 @@
 return {
     {
         "neovim/nvim-lspconfig",
+        event = { 'BufReadPre', 'BufNewFile' },
         config = function()
             local lspconfig = require("lspconfig")
             vim.api.nvim_create_autocmd("LspAttach", {
@@ -176,6 +177,7 @@ return {
     },
     {
         "williamboman/mason-lspconfig.nvim",
+        event = { 'BufReadPre', 'BufNewFile' },
         config = function()
             local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
             local default_setup = function(server)

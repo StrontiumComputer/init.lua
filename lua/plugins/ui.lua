@@ -122,6 +122,7 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
     },
     {
         "kdheepak/lazygit.nvim",
+        event = "BufRead",
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
@@ -134,6 +135,7 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
         "utilyre/barbecue.nvim",
         name = "barbecue",
         version = "*",
+        event = "BufRead",
         dependencies = {
             "SmiteshP/nvim-navic",
             "nvim-tree/nvim-web-devicons", -- optional dependency
