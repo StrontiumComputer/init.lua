@@ -1,9 +1,15 @@
 return {
-    { "onsails/lspkind.nvim" },
-    { "hrsh7th/cmp-nvim-lsp" },
-    { "hrsh7th/cmp-path" },
     {
         "hrsh7th/nvim-cmp",
+        dependencies = {
+            { "onsails/lspkind.nvim" },
+            { "hrsh7th/cmp-nvim-lsp" },
+            { "hrsh7th/cmp-path" },
+            { "saadparwaiz1/cmp_luasnip" },
+            { "L3MON4D3/LuaSnip" },
+            { "rafamadriz/friendly-snippets" }
+        },
+        event = "InsertEnter",
         config = function()
             local cmp = require("cmp")
             require("luasnip.loaders.from_vscode").lazy_load()
@@ -129,9 +135,4 @@ return {
             }
         end
     },
-    {
-        "L3MON4D3/LuaSnip",
-        dependencies = { "rafamadriz/friendly-snippets" },
-    },
-    { "saadparwaiz1/cmp_luasnip" },
 }

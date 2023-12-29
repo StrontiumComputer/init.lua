@@ -1,7 +1,7 @@
 return {
-    { "mfussenegger/nvim-lint" },
     {
         "mhartington/formatter.nvim",
+        ft = "java",
         config = function()
             -- Utilities for creating configurations
             local util = require("formatter.util")

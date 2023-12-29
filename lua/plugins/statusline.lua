@@ -65,7 +65,10 @@ return {
                 lualine_a = { "mode" },
                 lualine_b = {
                     "branch",
-                    "diff",
+                    {
+                        "diff",
+                        symbols = { added = ' ', modified = ' ', removed = ' ' },
+                    },
                     {
                         "diagnostics",
                         sources = { "nvim_diagnostic" },

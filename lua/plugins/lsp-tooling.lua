@@ -60,6 +60,11 @@ return {
             lspconfig.gopls.setup({
                 filetypes = { "go", "gomod", "gowork", "gotmpl" },
             })
+            lspconfig.biome.setup({})
+            lspconfig.astro.setup({})
+            lspconfig.htmx.setup({
+                filetypes = { "html", "astro" }
+            })
             lspconfig.tailwindcss.setup({
                 filetypes = {
                     "html",
@@ -199,6 +204,7 @@ return {
                     "ltex",
                     "svelte",
                     "texlab",
+                    "astro"
                 },
                 handlers = {
                     default_setup,
