@@ -27,6 +27,7 @@ return {
                     completion = cmp.config.window.bordered({
                         winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
                     }),
+                    documentation = cmp.config.window.bordered(),
                 },
                 formatting = {
                     fields = { "kind", "abbr", "menu" },
