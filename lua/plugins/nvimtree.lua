@@ -1,6 +1,6 @@
 return {
     "nvim-tree/nvim-tree.lua",
-    cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeClose", "NvimTreeRefresh" },
+    event = "BufWinEnter",
     config = function()
         local setup, nvimtree = pcall(require, "nvim-tree")
         if not setup then

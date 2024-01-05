@@ -40,6 +40,7 @@ return {
                         -- Customization for Pmenu
                         vim.api.nvim_set_hl(0, "PmenuSel", { bg = "#313244", fg = "NONE" })
                         vim.api.nvim_set_hl(0, "Pmenu", { fg = "#C5CDD9", bg = "#22252A" })
+                        vim.api.nvim_set_hl(0, "BorderBG", { fg = "#82AAFF", bg = "NONE" })
 
                         vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated",
                             { fg = "#7E8294", bg = "NONE", strikethrough = true })
