@@ -2,7 +2,7 @@ return {
     {
         -- Highlight, edit, and navigate code
         "nvim-treesitter/nvim-treesitter",
-        event = "BufRead",
+        event = "BufReadPre",
         dependencies = {
             {
                 "nvim-treesitter/nvim-treesitter-textobjects",

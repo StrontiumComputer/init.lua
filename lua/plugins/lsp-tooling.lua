@@ -75,9 +75,6 @@ return {
             lspconfig.texlab.setup({
                 filetypes = { "tex", "bib" },
             })
-            lspconfig.ltex.setup({
-                filetypes = { "tex", "bib" },
-            })
             lspconfig.tailwindcss.setup({
                 filetypes = {
                     "html",
@@ -203,7 +200,6 @@ return {
                     "tailwindcss",
                     "cssls",
                     "html",
-                    "ltex",
                     "svelte",
                     "texlab",
                     "astro"
@@ -259,6 +255,7 @@ return {
     },
     {
         "folke/neodev.nvim",
+        ft = { "lua", "vim" },
         config = function()
             require("neodev").setup({
                 library = { plugins = { "nvim-dap-ui" }, types = true },

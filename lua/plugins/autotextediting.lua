@@ -9,6 +9,7 @@ return {
     },
     {
         "windwp/nvim-ts-autotag",
+        event = "InsertEnter",
         ft = { "html", "javascript", "javascriptreact", "typescriptreact", "svelte", "vue", "astro", "markdown" },
         autotag = {
             enable = true,
@@ -20,7 +21,7 @@ return {
     {
         "kylechui/nvim-surround",
         version = "*", -- Use for stability; omit to use `main` branch for the latest features
-        event = "VeryLazy",
+        event = "InsertEnter",
         config = function()
             require("nvim-surround").setup({
                 -- Configuration here, or leave empty to use defaults

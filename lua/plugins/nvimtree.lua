@@ -1,7 +1,10 @@
 return {
     "nvim-tree/nvim-tree.lua",
-    event = "BufWinEnter",
+    lazy = false,
     config = function()
+        vim.g.loaded_netrw = 1
+        vim.g.loaded_netrwPlugin = 1
+        vim.opt.termguicolors = true
         local setup, nvimtree = pcall(require, "nvim-tree")
         if not setup then
             return
