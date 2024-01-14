@@ -134,6 +134,13 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
             end)
         end,
     },
+    -- {
+    --     "j-hui/fidget.nvim",
+    --     event = "VeryLazy",
+    --     config = function()
+    --         require("fidget").setup {}
+    --     end,
+    -- },
     {
         "kdheepak/lazygit.nvim",
         event = "BufRead",
@@ -157,5 +164,14 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
         opts = {
             -- configurations go here
         },
-    }
+    },
+    -- lazy.nvim
+    {
+        "m4xshen/hardtime.nvim",
+        dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+        opts = {},
+        config = function()
+            require("hardtime").setup()
+        end
+    },
 }

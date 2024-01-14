@@ -66,17 +66,6 @@ return {
             lspconfig.htmx.setup({
                 filetypes = { "html", "astro" }
             })
-            lspconfig.tailwindcss.setup({
-                filetypes = {
-                    "html",
-                    "css",
-                    "javascript",
-                    "javascriptreact",
-                    "typescript",
-                    "typescriptreact",
-                    "svelte",
-                },
-            })
             lspconfig.svelte.setup({
                 filetypes = { "svelte" },
             })
@@ -88,6 +77,18 @@ return {
             })
             lspconfig.ltex.setup({
                 filetypes = { "tex", "bib" },
+            })
+            lspconfig.tailwindcss.setup({
+                filetypes = {
+                    "html",
+                    "css",
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact",
+                    "svelte",
+                    "astro",
+                },
             })
 
             vim.diagnostic.config({
@@ -168,7 +169,6 @@ return {
             })
         end,
     },
-
     {
         "williamboman/mason.nvim",
         config = function()
