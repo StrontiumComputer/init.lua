@@ -41,4 +41,11 @@ return {
             vim.g.copilot_assume_mapped = true
         end
     },
+    {
+        'echasnovski/mini.bracketed',
+        version = false,
+        config = function()
+            require('mini.bracketed').setup()
+        end
+    },
 }

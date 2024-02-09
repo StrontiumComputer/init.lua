@@ -1,7 +1,7 @@
 return {
     -- Set lualine as statusline
     "nvim-lualine/lualine.nvim",
-    event = "BufReadPre",
+    event = "VeryLazy",
     -- See `:help lualine.txt`
     opts = {
         options = {
@@ -30,11 +30,11 @@ return {
         end
 
         local colors = {
-            bg = "#202328",
+            bg = "#24273A",
             fg = "#bbc2cf",
             yellow = "#ECBE7B",
             cyan = "#008080",
-            darkblue = "#081633",
+            darkblue = "#24273A",
             green = "#98be65",
             orange = "#fab387",
             violet = "#a9a1e1",

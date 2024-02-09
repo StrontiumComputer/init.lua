@@ -5,7 +5,6 @@ return {
     lazy = false,
     config = function()
         require("catppuccin").setup({
-            transparent_background = true,
             cmp = true,
             telescope = {
                 enabled = true,
@@ -16,10 +15,12 @@ return {
             treesitter_context = true,
             treesitter = true,
             nvimtree = true,
+            fidget = true,
+            rainbow_delimiters = true,
 
             background = { -- :h background
                 light = "latte",
-                dark = "macchiato",
+                dark = "mocha",
             },
 
             native_lsp = {

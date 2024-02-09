@@ -169,9 +169,47 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
     {
         "m4xshen/hardtime.nvim",
         dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-        opts = {},
+        opts = {
+            disable_mouse = false,
+            disabled_keys = {}
+        },
         config = function()
             require("hardtime").setup()
         end
     },
+    {
+        "j-hui/fidget.nvim",
+        opts = {
+            -- options
+        },
+        config = function()
+            require("fidget").setup {}
+        end,
+    },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+    },
+    {
+        "rcarriga/nvim-notify",
+        config = function()
+            vim.notify = require("notify")
+        end,
+    },
+    {
+        "kawre/leetcode.nvim",
+        build = ":TSUpdate html",
+        dependencies = {
+            "nvim-telescope/telescope.nvim",
+            "nvim-lua/plenary.nvim", -- required by telescope
+            "MunifTanjim/nui.nvim",
+
+            -- optional
+            "nvim-treesitter/nvim-treesitter",
+            "rcarriga/nvim-notify",
+            "nvim-tree/nvim-web-devicons",
+        },
+        opts = {
+            -- configuration goes here
+        },
+    }
 }
