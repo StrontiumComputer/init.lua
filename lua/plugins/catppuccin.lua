@@ -17,6 +17,7 @@ return {
             nvimtree = true,
             fidget = true,
             rainbow_delimiters = true,
+            noice = true,
 
             background = { -- :h background
                 light = "latte",
