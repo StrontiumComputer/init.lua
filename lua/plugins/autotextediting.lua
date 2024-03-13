@@ -35,11 +35,12 @@ return {
         end
     },
     {
-        "github/copilot.vim",
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
         event = "InsertEnter",
         config = function()
-            vim.g.copilot_assume_mapped = true
-        end
+            require("copilot").setup({})
+        end,
     },
     {
         'echasnovski/mini.bracketed',

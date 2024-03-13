@@ -88,11 +88,15 @@ return {
                         "filesize",
                         color = { fg = "#ffffff" },
                     },
-                    { "encoding" },
                 },
                 lualine_x = {
                     { LSPINFO, color = { fg = colors.orange, gui = "bold" }, icon = " LSP:" },
                     "filetype",
+                    {
+                        require("noice").api.statusline.mode.get,
+                        cond = require("noice").api.statusline.mode.has,
+                        color = { fg = colors.violet, gui = "bold" },
+                    }
                 },
                 lualine_y = { "progress" },
                 lualine_z = {
