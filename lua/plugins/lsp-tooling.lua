@@ -8,46 +8,33 @@ return {
                 desc = "LSP actions",
                 callback = function(event)
                     local opts = { buffer = event.buf }
+                    local map = function(keys, func, desc)
+                        vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+                    end
 
-                    vim.keymap.set("n", "K", function()
-                        vim.lsp.buf.hover()
-                    end, opts)
-                    vim.keymap.set("n", "gd", function()
-                        vim.lsp.buf.definition()
-                    end, opts)
-                    vim.keymap.set("n", "gD", function()
-                        vim.lsp.buf.declaration()
-                    end, opts)
-                    vim.keymap.set("n", "gi", function()
-                        vim.lsp.buf.implementation()
-                    end, opts)
-                    vim.keymap.set("n", "go", function()
-                        vim.lsp.buf.type_definition()
-                    end, opts)
-                    vim.keymap.set("n", "<leader>vws", function()
-                        vim.lsp.buf.workspace_symbol()
-                    end, opts)
-                    vim.keymap.set("n", "<leader>vd", function()
-                        vim.diagnostic.open_float()
-                    end, opts)
-                    vim.keymap.set("n", "[d", function()
-                        vim.diagnostic.goto_next()
-                    end, opts)
-                    vim.keymap.set("n", "]d", function()
-                        vim.diagnostic.goto_prev()
-                    end, opts)
-                    vim.keymap.set("n", "<leader>vca", function()
-                        vim.lsp.buf.code_action()
-                    end, opts)
-                    vim.keymap.set("n", "<leader>vrr", function()
-                        vim.lsp.buf.references()
-                    end, opts)
-                    vim.keymap.set("n", "<leader>vrn", function()
-                        vim.lsp.buf.rename()
-                    end, opts)
-                    vim.keymap.set("i", "c-x", function()
-                        vim.lsp.buf.signature_help()
-                    end, opts)
+                    map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+                    map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+                    map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+                    map('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+                    map('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+                    map('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+                    map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+                    map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+                    map('K', vim.lsp.buf.hover, 'Hover Documentation')
+                    map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+
+                    local client = vim.lsp.get_client_by_id(event.data.client_id)
+                    if client and client.server_capabilities.documentHighlightProvider then
+                        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+                            buffer = event.buf,
+                            callback = vim.lsp.buf.document_highlight,
+                        })
+
+                        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+                            buffer = event.buf,
+                            callback = vim.lsp.buf.clear_references,
+                        })
+                    end
                 end,
             })
 

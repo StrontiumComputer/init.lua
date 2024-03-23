@@ -1,48 +1,32 @@
 return {
-    {
-        "mhartington/formatter.nvim",
-        ft = "java",
-        config = function()
-            -- Utilities for creating configurations
-            local util = require("formatter.util")
+    { -- Autoformat
+        "stevearc/conform.nvim",
 
-            -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
-            require("formatter").setup({
-                -- Enable or disable logging
-                logging = true,
-                -- Set the log level
-                log_level = vim.log.levels.WARN,
-                -- All formatter configurations are opt-in
-                filetype = {
-                    -- Formatter configurations for filetype "lua" go here
-                    -- and will be executed in order
-                    java = {
-                        function()
-                            return {
-                                exe = "clang-format",
-                                args = { "--style=chromium", "--assume-filename=.java" },
-                                stdin = true,
-                            }
-                        end,
-                    },
-                    -- Use the special "*" filetype for defining formatter configurations on
-                    -- any filetype
-                    ["*"] = {
-                        -- "formatter.filetypes.any" defines default configurations for any
-                        -- filetype
-                        require("formatter.filetypes.any").remove_trailing_whitespace,
-                    },
-                },
-            })
-
-            vim.api.nvim_exec(
-                [[augroup FormatAutogroup
-    autocmd!
-    autocmd BufWritePost * FormatWrite
-    augroup END]],
-                true
-            )
-        end
+        opts = {
+            notify_on_error = false,
+            format_on_save = function(bufnr)
+                -- Disable "format_on_save lsp_fallback" for languages that don't
+                -- have a well standardized coding style. You can add additional
+                -- languages here or re-enable it for the disabled ones.
+                local disable_filetypes = { c = true, cpp = true }
+                return {
+                    timeout_ms = 500,
+                    lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+                }
+            end,
+            formatters_by_ft = {
+                lua = { "stylua" },
+                -- Conform can also run multiple formatters sequentially
+                python = { "black" },
+                java = { "astyle" },
+                latex = { "latexindent" },
+                go = { "gofumpt", "goimports-reviser", "golines" },
+                markdown = { "cbfmt" },
+                -- You can use a sub-list to tell conform to run *until* a formatter
+                -- is found.
+                javascript = { { "biome", "prettierd", "prettier" } },
+            },
+        },
     },
     {
         "nvimtools/none-ls.nvim",
@@ -81,6 +65,5 @@ return {
                 end,
             })
         end,
-
     },
 }
