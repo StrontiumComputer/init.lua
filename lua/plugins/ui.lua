@@ -142,17 +142,6 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
     --     end,
     -- },
     {
-        "kdheepak/lazygit.nvim",
-        event = "BufRead",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-        config = function()
-            require("telescope").load_extension("lazygit")
-            vim.keymap.set("n", "<leader>gs", [[:LazyGit<CR>]])
-        end
-    },
-    {
         "utilyre/barbecue.nvim",
         name = "barbecue",
         version = "*",
@@ -190,11 +179,25 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
         "HiPhish/rainbow-delimiters.nvim",
     },
     {
+        "rcarriga/nvim-notify",
+        opts = {
+            timeout = 100,
+            max_height = function()
+                return math.floor(vim.o.lines * 0.75)
+            end,
+            max_width = function()
+                return math.floor(vim.o.columns * 0.75)
+            end,
+            on_open = function(win)
+                vim.api.nvim_win_set_config(win, { zindex = 100 })
+            end,
+        },
+    },
+    {
         "folke/noice.nvim",
         event = "VeryLazy",
         dependencies = {
             "MunifTanjim/nui.nvim",
-            "rcarriga/nvim-notify",
         },
         config = function()
             vim.notify = require("notify")
