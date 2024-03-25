@@ -9,10 +9,10 @@ return {
                         icon = "",
                         color = "#EF8547",
                         name = "astro",
-                    }
-                }
+                    },
+                },
             })
-        end
+        end,
     },
     {
         "NvChad/nvim-colorizer.lua",
@@ -39,8 +39,7 @@ return {
             require("cmp").config.formatting = {
                 format = require("tailwindcss-colorizer-cmp").formatter,
             }
-        end
-
+        end,
     },
     {
         "goolord/alpha-nvim",
@@ -172,7 +171,7 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
             -- options
         },
         config = function()
-            require("fidget").setup {}
+            require("fidget").setup({})
         end,
     },
     {
@@ -210,11 +209,11 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
                 },
                 -- you can enable a preset for easier configuration
                 presets = {
-                    bottom_search = false,        -- use a classic bottom cmdline for search
+                    bottom_search = false, -- use a classic bottom cmdline for search
                     -- command_palette = true,       -- position the cmdline and popupmenu together
                     long_message_to_split = true, -- long messages will be sent to a split
                     -- inc_rename = false,           -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = false,       -- add a border to hover docs and signature help
+                    lsp_doc_border = false, -- add a border to hover docs and signature help
                 },
             })
         end,
@@ -251,5 +250,11 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
                 return vim.ui.input(...)
             end
         end,
-    }
+    },
+    {
+        "folke/todo-comments.nvim",
+        event = "VimEnter",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = { signs = false },
+    },
 }
