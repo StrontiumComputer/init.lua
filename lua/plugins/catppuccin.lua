@@ -21,7 +21,7 @@ return {
 
             background = { -- :h background
                 light = "latte",
-                dark = "mocha",
+                dark = "macchiato",
             },
 
             native_lsp = {

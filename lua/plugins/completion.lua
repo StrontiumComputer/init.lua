@@ -7,7 +7,9 @@ return {
             { "hrsh7th/cmp-path" },
             { "saadparwaiz1/cmp_luasnip" },
             { "L3MON4D3/LuaSnip" },
-            { "rafamadriz/friendly-snippets" }
+            { "rafamadriz/friendly-snippets" },
+            { "hrsh7th/cmp-buffer" },
+            { "hrsh7th/cmp-nvim-lua" },
         },
         event = "InsertEnter",
         config = function()
@@ -128,8 +130,8 @@ return {
                     { name = "luasnip",  max_item_count = 3 },
                     { name = "path",     max_item_count = 2 },
                     { name = "nvim_lua", max_item_count = 2 },
+                    { name = "buffer",   keyword_length = 3 },
                 }, {
-                    { name = "buffer", keyword_length = 3 },
                 }),
             })
 
