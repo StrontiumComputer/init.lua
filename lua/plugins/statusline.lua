@@ -42,6 +42,7 @@ return {
             magenta = "#c678dd",
             blue = "#51afef",
             red = "#ec5f67",
+            white = "#FFFFFF",
         }
 
         require("lualine").setup({
@@ -49,7 +50,7 @@ return {
                 icons_enabled = true,
                 theme = "auto",
                 component_separators = { left = "|", right = "|" },
-                section_separators = { left = '', right = '' },
+                section_separators = { left = "", right = "" },
                 disabled_filetypes = {
                     statusline = {},
                     winbar = {},
@@ -65,19 +66,20 @@ return {
             },
             sections = {
                 lualine_a = {
-                    { "mode", separator = { left = '' }, right_padding = 2, icon = { "" } } },
+                    { "mode", separator = { left = "" }, right_padding = 2, icon = { "" } },
+                },
                 lualine_b = {
-                    "branch",
+                    { "branch", icon = { "󰊢" } },
                     {
                         "diff",
-                        symbols = { added = ' ', modified = ' ', removed = ' ' },
+                        symbols = { added = " ", modified = " ", removed = " " },
                     },
                 },
                 lualine_c = {
                     {
                         "filename",
                         color = { fg = colors.fg, gui = "bold" },
-                        separator = { left = "", right = "" }
+                        separator = { left = "", right = "" },
                     },
                     { "%=", separator = { left = "", right = "" } },
                     {
@@ -89,7 +91,7 @@ return {
                             color_warn = { fg = colors.yellow },
                             color_info = { fg = colors.cyan },
                         },
-                        separator = { left = "", right = "" }
+                        separator = { left = "", right = "" },
                     },
                 },
                 lualine_x = {
@@ -102,10 +104,10 @@ return {
                     "location",
                 },
                 lualine_y = {
-                    { LSPINFO, color = { gui = "bold" }, icon = " LSP:" },
+                    { "filetype", color = { fg = colors.white } },
                 },
                 lualine_z = {
-                    { "filetype", separator = { right = "" }, color = { fg = colors.bg } },
+                    { LSPINFO, separator = { right = "" }, icon = " LSP:" },
                 },
             },
             inactive_sections = {
