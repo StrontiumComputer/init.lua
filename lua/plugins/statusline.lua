@@ -37,6 +37,7 @@ return {
             darkblue = "#24273A",
             green = "#98be65",
             orange = "#fab387",
+            peach = "#f5a97f",
             violet = "#a9a1e1",
             magenta = "#c678dd",
             blue = "#51afef",
@@ -71,6 +72,14 @@ return {
                         "diff",
                         symbols = { added = ' ', modified = ' ', removed = ' ' },
                     },
+                },
+                lualine_c = {
+                    {
+                        "filename",
+                        color = { fg = colors.fg, gui = "bold" },
+                        separator = { left = "", right = "" }
+                    },
+                    { "%=", separator = { left = "", right = "" } },
                     {
                         "diagnostics",
                         sources = { "nvim_diagnostic" },
@@ -80,27 +89,24 @@ return {
                             color_warn = { fg = colors.yellow },
                             color_info = { fg = colors.cyan },
                         },
-                    },
-                },
-                lualine_c = {
-                    { "filename", color = { fg = colors.violet, gui = "bold" } },
-                    {
-                        "filesize",
-                        color = { fg = "#ffffff" },
+                        separator = { left = "", right = "" }
                     },
                 },
                 lualine_x = {
-                    { LSPINFO, color = { fg = colors.orange, gui = "bold" }, icon = " LSP:" },
-                    "filetype",
                     {
                         require("noice").api.statusline.mode.get,
                         cond = require("noice").api.statusline.mode.has,
-                        color = { fg = colors.violet, gui = "bold" },
-                    }
+                        color = { fg = colors.fg, gui = "bold" },
+                    },
+                    "progress",
+                    "location",
                 },
-                lualine_y = { "progress" },
+                lualine_y = {
+                    { LSPINFO, color = { gui = "bold" }, icon = " LSP:" },
+                },
                 lualine_z = {
-                    { "location", separator = { right = '' }, left_padding = 2 } },
+                    { "filetype", separator = { right = "" }, color = { fg = colors.bg } },
+                },
             },
             inactive_sections = {
                 lualine_a = {},
