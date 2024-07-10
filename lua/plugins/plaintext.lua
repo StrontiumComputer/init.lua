@@ -1,5 +1,3 @@
-vim.cmd [[highlight CodeBlock guibg=#1e1e2e]]
-
 return {
     {
         "iamcco/markdown-preview.nvim",
@@ -14,18 +12,16 @@ return {
         "lervag/vimtex",
     },
     {
-        'MeanderingProgrammer/markdown.nvim',
-        name = 'render-markdown', -- Only needed if you have another plugin named markdown.nvim
-        dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        config = function()
-            require('render-markdown').setup({
-                highlights = {
-                    heading = {
-                        backgrounds = { 'DiffChange', 'DiffChange', 'DiffChange' }
-                    },
-                    code = 'CodeBlock',
-                }
-            })
-        end,
-    }
+        "OXY2DEV/markview.nvim",
+
+        dependencies = {
+            -- You may not need this if you don't lazy load
+            -- Or if the parsers are in your $RUNTIMEPATH
+            "nvim-treesitter/nvim-treesitter",
+
+            "nvim-tree/nvim-web-devicons",
+        },
+        opts = {},
+    },
+    { "echasnovski/mini.align", version = false, opts = {} },
 }

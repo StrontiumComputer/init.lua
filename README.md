@@ -2,6 +2,8 @@
 
 My own customized Neovim Config
 
+![Dashboard when entering into my nvim config]("./screenshots/Screenshot 2024-07-09 at 11.10.00 PM.png") 
+
 ## LSP Plugins
 - #### nvim-lspconfig
 - #### mason.nvim
