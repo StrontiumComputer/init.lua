@@ -1,63 +1,78 @@
 return {
-    { -- Autoformat
-        "stevearc/conform.nvim",
+	{ -- Autoformat
+		"stevearc/conform.nvim",
 
-        opts = {
-            notify_on_error = false,
-            format_on_save = function(bufnr)
-                local disable_filetypes = { c = true, cpp = true }
-                return {
-                    timeout_ms = 500,
-                    lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-                }
-            end,
-            formatters_by_ft = {
-                lua = { "stylua" },
-                python = { "black" },
-                java = { "astyle" },
-                latex = { "latexindent" },
-                go = { "gofumpt", "goimports-reviser", "golines" },
-                markdown = { "cbfmt" },
-                javascript = { { "biome", "prettierd", "prettier" } },
-            },
-        },
-    },
-    {
-        "nvimtools/none-ls.nvim",
-        event = "VeryLazy",
-        requires = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("null-ls").setup()
+		opts = {
+			notify_on_error = false,
+			format_on_save = function(bufnr)
+				local disable_filetypes = { c = true, cpp = true }
+				return {
+					timeout_ms = 500,
+					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+				}
+			end,
+			formatters_by_ft = {
+				lua = { "stylua" },
+				python = { "black" },
+				java = { "astyle" },
+				latex = { "latexindent" },
+				go = { "gofumpt", "goimports-reviser", "golines" },
+				markdown = { "cbfmt" },
+				javascript = { { "biome", "prettierd", "prettier" } },
+			},
+		},
+	},
+	{ -- Linting
+		"mfussenegger/nvim-lint",
+		event = { "BufReadPre", "BufNewFile" },
+		config = function()
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				markdown = { "markdownlint" },
+				python = { "mypy" },
+			}
 
-            local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-            local null_ls = require("null-ls")
+			-- To allow other plugins to add linters to require('lint').linters_by_ft,
+			-- instead set linters_by_ft like this:
+			-- lint.linters_by_ft = lint.linters_by_ft or {}
+			-- lint.linters_by_ft['markdown'] = { 'markdownlint' }
+			--
+			-- However, note that this will enable a set of default linters,
+			-- which will cause errors unless these tools are available:
+			-- {
+			--   clojure = { "clj-kondo" },
+			--   dockerfile = { "hadolint" },
+			--   inko = { "inko" },
+			--   janet = { "janet" },
+			--   json = { "jsonlint" },
+			--   markdown = { "vale" },
+			--   rst = { "vale" },
+			--   ruby = { "ruby" },
+			--   terraform = { "tflint" },
+			--   text = { "vale" }
+			-- }
+			--
+			-- You can disable the default linters by setting their filetypes to nil:
+			-- lint.linters_by_ft['clojure'] = nil
+			-- lint.linters_by_ft['dockerfile'] = nil
+			-- lint.linters_by_ft['inko'] = nil
+			-- lint.linters_by_ft['janet'] = nil
+			-- lint.linters_by_ft['json'] = nil
+			-- lint.linters_by_ft['markdown'] = nil
+			-- lint.linters_by_ft['rst'] = nil
+			-- lint.linters_by_ft['ruby'] = nil
+			-- lint.linters_by_ft['terraform'] = nil
+			-- lint.linters_by_ft['text'] = nil
 
-            null_ls.setup({
-                sources = {
-                    null_ls.builtins.formatting.stylua,
-                    null_ls.builtins.formatting.prettierd,
-                    null_ls.builtins.formatting.black,
-                    null_ls.builtins.formatting.gofumpt,
-                    null_ls.builtins.formatting.golines,
-                    null_ls.builtins.formatting.goimports_reviser,
-                    null_ls.builtins.diagnostics.mypy,
-                },
-                on_attach = function(client, bufnr)
-                    if client.supports_method("textDocument/formatting") then
-                        vim.api.nvim_clear_autocmds({
-                            group = augroup,
-                            buffer = bufnr,
-                        })
-                        vim.api.nvim_create_autocmd("BufWritePre", {
-                            group = augroup,
-                            buffer = bufnr,
-                            callback = function()
-                                vim.lsp.buf.format({ bufnr = bufnr })
-                            end,
-                        })
-                    end
-                end,
-            })
-        end,
-    },
+			-- Create autocommand which carries out the actual linting
+			-- on the specified events.
+			local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
+			vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+				group = lint_augroup,
+				callback = function()
+					require("lint").try_lint()
+				end,
+			})
+		end,
+	},
 }
