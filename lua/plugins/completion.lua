@@ -98,12 +98,16 @@ return {
 					end,
 				},
 				sources = cmp.config.sources({
-					{ name = "otter", max_item_count = 9 },
-					{ name = "nvim_lsp", max_item_count = 9 },
+					{ name = "otter" },
+					{ name = "path" },
+					{ name = "nvim_lsp_signature_help" },
+					{ name = "nvim_lsp" },
 					{ name = "luasnip", max_item_count = 3 },
-					{ name = "path", max_item_count = 2 },
-					{ name = "nvim_lua", max_item_count = 2 },
-					{ name = "buffer", keyword_length = 3 },
+					{ name = "pandoc_references" },
+					{ name = "buffer", keyword_length = 5, max_item_count = 3 },
+					{ name = "calc" },
+					{ name = "latex_symbols" },
+					{ name = "emoji" },
 				}, {}),
 			})
 
