@@ -61,7 +61,7 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 				dashboard.button("f", "󰱼 " .. " Find file", ":Telescope find_files <CR>"),
 				dashboard.button("n", "󰣕 " .. " New file", ":ene <BAR> startinsert <CR>"),
 				dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-				dashboard.button("e", " " .. " File Explorer", ":NvimTreeOpen <CR>"),
+				dashboard.button("e", " " .. " File Explorer", ":lua MiniFiles.open() <CR>"),
 				dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
 				dashboard.button("s", " " .. " Git Status", ":Fugit2 <CR>"),
 				dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
@@ -249,6 +249,7 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 			"rcarriga/nvim-notify",
 			"nvim-tree/nvim-web-devicons",
 		},
+		cmd = "Leet",
 		opts = {
 			-- configuration goes here
 		},
@@ -274,5 +275,14 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
+	},
+	{
+		"echasnovski/mini.files",
+		version = false,
+		opts = {},
+		config = function()
+			require("mini.files").setup()
+		end,
+		vim.keymap.set("n", "<leader>pv", ":lua MiniFiles.open()<CR>"),
 	},
 }
