@@ -71,13 +71,7 @@ return {
 				gopls = {
 					filetypes = { "go" },
 				},
-				ruff_lsp = {
-					filetypes = {
-						"python",
-						"quarto",
-						"jupyter-notebook",
-					},
-				},
+				pyright = {},
 				rust_analyzer = {},
 				tsserver = {
 					filetypes = {
