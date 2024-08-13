@@ -1,27 +1,32 @@
 return {
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        build = "cd app && npm install",
-        init = function()
-            vim.g.mkdp_filetypes = { "markdown" }
-        end,
-        ft = { "markdown" },
-    },
-    {
-        "lervag/vimtex",
-    },
-    {
-        "OXY2DEV/markview.nvim",
+	{
+		"OXY2DEV/markview.nvim",
+		lazy = false,
+		dependencies = {
+			-- You may not need this if you don't lazy load
+			-- Or if the parsers are in your $RUNTIMEPATH
+			"nvim-treesitter/nvim-treesitter",
 
-        dependencies = {
-            -- You may not need this if you don't lazy load
-            -- Or if the parsers are in your $RUNTIMEPATH
-            "nvim-treesitter/nvim-treesitter",
-
-            "nvim-tree/nvim-web-devicons",
-        },
-        opts = {},
-    },
-    { "echasnovski/mini.align", version = false, opts = {} },
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = function()
+			require("markview").setup({
+				modes = { "n", "i" }, -- If you are using it in insert mode
+				hybrid_modes = { "i" },
+			})
+		end,
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && npm install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+	{
+		"lervag/vimtex",
+	},
+	{ "echasnovski/mini.align", version = false, opts = {} },
 }
