@@ -73,11 +73,12 @@ return {
 				},
 				pyright = {},
 				rust_analyzer = {},
-				tsserver = {
+				ts_ls = {
 					filetypes = {
 						"typescript",
 					},
 				},
+				htmx = { filetypes = "html", "astro" },
 				astro = {},
 				biome = {},
 				svelte = {},
