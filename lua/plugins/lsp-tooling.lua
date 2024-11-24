@@ -84,6 +84,7 @@ return {
 				svelte = {},
 				marksman = {},
 				texlab = {},
+				volar = {},
 				tailwindcss = {
 					filetypes = {
 						"html",

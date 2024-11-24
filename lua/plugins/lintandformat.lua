@@ -19,6 +19,7 @@ return {
 				go = { "gofumpt", "goimports-reviser", "golines" },
 				markdown = { "cbfmt" },
 				javascript = { { "biome", "prettierd", "prettier" } },
+				c = { "clang-format" },
 			},
 		},
 	},
