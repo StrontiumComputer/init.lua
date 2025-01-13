@@ -36,10 +36,6 @@ return {
 					sass = { enable = true, parsers = { "css" } },
 				},
 			})
-
-			require("cmp").config.formatting = {
-				format = require("tailwindcss-colorizer-cmp").formatter,
-			}
 		end,
 	},
 	{
@@ -284,5 +280,23 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 			require("mini.files").setup()
 		end,
 		vim.keymap.set("n", "<leader>pv", ":lua MiniFiles.open()<CR>"),
+	},
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- your configuration comes here
+			-- or leave it empty to use the default settings
+			-- refer to the configuration section below
+		},
+		keys = {
+			{
+				"<leader>?",
+				function()
+					require("which-key").show({ global = false })
+				end,
+				desc = "Buffer Local Keymaps (which-key)",
+			},
+		},
 	},
 }
