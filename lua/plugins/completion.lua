@@ -139,7 +139,7 @@ return {
 		---@module 'blink.cmp'
 		---@type blink.cmp.Config
 		opts = {
-			snippets = { preset = "luasnip" },
+			-- snippets = { preset = "luasnip" },
 			keymap = { preset = "default" },
 
 			appearance = {
@@ -148,7 +148,7 @@ return {
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer" },
+				default = { "snippets", "lsp", "path", "buffer" },
 			},
 		},
 		opts_extend = { "sources.default" },

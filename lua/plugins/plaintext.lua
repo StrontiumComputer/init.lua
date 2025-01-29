@@ -11,8 +11,10 @@ return {
 		},
 		config = function()
 			require("markview").setup({
-				modes = { "n", "i" }, -- If you are using it in insert mode
-				hybrid_modes = { "i" },
+				preview = {
+					modes = { "n", "i" }, -- If you are using it in insert mode
+					hybrid_modes = { "i" },
+				},
 			})
 		end,
 	},
