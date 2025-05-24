@@ -78,6 +78,11 @@ return {
             vim.lsp.enable('ts_ls')
             vim.lsp.enable('vue_ls')
             vim.lsp.enable('astro')
+
+            -- Keymaps
+            local fzf = require("fzf-lua")
+            vim.keymap.set("n", '<leader>ca', fzf.lsp_code_actions, { desc = "[C]ode [A]ctions" })
+
         end
     }
     -- { -- LSP Configuration & Plugins
