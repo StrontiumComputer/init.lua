@@ -17,6 +17,7 @@ return {
         },
         config = function ()
             -- Some UI edits
+            vim.lsp.inlay_hint.enable()
             vim.diagnostic.config({
                 virtual_lines = true,
                 signs = {
@@ -34,12 +35,6 @@ return {
                     },
                 },
             })
-
-            -- local signs = { Error = "", Warn = "", Hint = "󰛨", Info = "󰋼" }
-            -- for type, icon in pairs(signs) do
-            --     local hl = "DiagnosticSign" .. type
-            --     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-            -- end
 
             -- Lua
             vim.lsp.enable('lua_ls')
@@ -80,6 +75,7 @@ return {
                     "vue",
                 },
             })
+            vim.lsp.enable('ts_ls')
             vim.lsp.enable('vue_ls')
             vim.lsp.enable('astro')
         end
