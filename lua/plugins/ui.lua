@@ -59,7 +59,7 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 				dashboard.button("r", " " .. " Recent files", ":FzfLua oldfiles <CR>"),
 				dashboard.button("e", " " .. " File Explorer", ":lua MiniFiles.open() <CR>"),
 				dashboard.button("g", " " .. " Find text", ":FzfLua live_grep <CR>"),
-				dashboard.button("s", " " .. " Git Status", ":Fugit2 <CR>"),
+				dashboard.button("s", " " .. " Git Status", ":LazyGit <CR>"),
 				dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
 				dashboard.button("l", "󰒲 " .. " Lazy", ":Lazy<CR>"),
 				dashboard.button("q", " " .. " Quit", ":qa<CR>"),
@@ -250,22 +250,22 @@ _|"""""|_|"""""|_|"""""|_|"""""|_|"""""|_|"""""|
 			-- configuration goes here
 		},
 	},
-	{
-		"stevearc/dressing.nvim",
-		lazy = true,
-		init = function()
-			---@diagnostic disable-next-line: duplicate-set-field
-			vim.ui.select = function(...)
-				require("lazy").load({ plugins = { "dressing.nvim" } })
-				return vim.ui.select(...)
-			end
-			---@diagnostic disable-next-line: duplicate-set-field
-			vim.ui.input = function(...)
-				require("lazy").load({ plugins = { "dressing.nvim" } })
-				return vim.ui.input(...)
-			end
-		end,
-	},
+	-- {
+	-- 	"stevearc/dressing.nvim",
+	-- 	lazy = true,
+	-- 	init = function()
+	-- 		---@diagnostic disable-next-line: duplicate-set-field
+	-- 		vim.ui.select = function(...)
+	-- 			require("lazy").load({ plugins = { "dressing.nvim" } })
+	-- 			return vim.ui.select(...)
+	-- 		end
+	-- 		---@diagnostic disable-next-line: duplicate-set-field
+	-- 		vim.ui.input = function(...)
+	-- 			require("lazy").load({ plugins = { "dressing.nvim" } })
+	-- 			return vim.ui.input(...)
+	-- 		end
+	-- 	end,
+	-- },
 	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",

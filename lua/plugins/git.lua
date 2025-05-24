@@ -1,19 +1,39 @@
 return {
+    -- {
+    --     'SuperBo/fugit2.nvim',
+    --     opts = {},
+    --     dependencies = {
+    --         'MunifTanjim/nui.nvim',
+    --         'nvim-tree/nvim-web-devicons',
+    --         'nvim-lua/plenary.nvim',
+    --         {
+    --             'chrisgrieser/nvim-tinygit', -- optional: for Github PR view
+    --             dependencies = { 'stevearc/dressing.nvim' }
+    --         },
+    --     },
+    --     cmd = { 'Fugit2', 'Fugit2Graph' },
+    --     keys = {
+    --         { '<leader>gs', mode = 'n', '<cmd>Fugit2<cr>' }
+    --     }
+    -- },
     {
-        'SuperBo/fugit2.nvim',
-        opts = {},
-        dependencies = {
-            'MunifTanjim/nui.nvim',
-            'nvim-tree/nvim-web-devicons',
-            'nvim-lua/plenary.nvim',
-            {
-                'chrisgrieser/nvim-tinygit', -- optional: for Github PR view
-                dependencies = { 'stevearc/dressing.nvim' }
-            },
+        "kdheepak/lazygit.nvim",
+        lazy = true,
+        cmd = {
+            "LazyGit",
+            "LazyGitConfig",
+            "LazyGitCurrentFile",
+            "LazyGitFilter",
+            "LazyGitFilterCurrentFile",
         },
-        cmd = { 'Fugit2', 'Fugit2Graph' },
+        -- optional for floating window border decoration
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+        -- setting the keybinding for LazyGit with 'keys' is recommended in
+        -- order to load the plugin when the command is run for the first time
         keys = {
-            { '<leader>gs', mode = 'n', '<cmd>Fugit2<cr>' }
+            { "<leader>gs", "<cmd>LazyGit<cr>", desc = "LazyGit" }
         }
     },
     {
